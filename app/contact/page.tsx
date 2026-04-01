@@ -26,13 +26,8 @@ export default function ContactPage() {
     <main style={{ background: "#080808" }}>
       {/* ── Hero ── */}
       <section
-        style={{
-          paddingTop: 160,
-          paddingBottom: 80,
-          paddingLeft: 48,
-          paddingRight: 48,
-          borderBottom: "1px solid rgba(240,237,232,0.1)",
-        }}
+        className="pg-section-hero"
+        style={{ borderBottom: "1px solid rgba(240,237,232,0.1)" }}
       >
         <AnimatedSection>
           <h1
@@ -66,13 +61,7 @@ export default function ContactPage() {
 
       {/* ── Form + Info ── */}
       <section
-        style={{
-          padding: "80px 48px",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 96,
-          alignItems: "start",
-        }}
+        className="pg-section pg-grid-2"
       >
         {/* Form */}
         <AnimatedSection>

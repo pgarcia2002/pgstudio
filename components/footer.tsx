@@ -3,6 +3,7 @@ import Image from "next/image"
 export function Footer() {
   return (
     <footer
+      className="footer-inner"
       style={{
         borderTop: "1px solid rgba(240,237,232,0.1)",
         padding: "32px 48px",

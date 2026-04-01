@@ -43,6 +43,7 @@ export function Cursor() {
     <>
       <div
         ref={dotRef}
+        className="cursor-dot"
         style={{
           position: "fixed",
           top: 0,
@@ -59,6 +60,7 @@ export function Cursor() {
       />
       <div
         ref={ringRef}
+        className="cursor-ring"
         style={{
           position: "fixed",
           top: 0,

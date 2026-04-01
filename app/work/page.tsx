@@ -29,15 +29,7 @@ export default function WorkPage() {
   return (
     <main style={{ background: "#080808" }}>
       {/* ── Hero ── */}
-      <section
-        style={{
-          paddingTop: 160,
-          paddingBottom: 80,
-          paddingLeft: 48,
-          paddingRight: 48,
-          borderBottom: "1px solid rgba(240,237,232,0.1)",
-        }}
-      >
+      <section className="pg-section-hero" style={{ borderBottom: "1px solid rgba(240,237,232,0.1)" }}>
         <AnimatedSection>
           <h1
             style={{
@@ -72,17 +64,12 @@ export default function WorkPage() {
       {projects.map(({ name, url, category, description }) => (
         <AnimatedSection key={name} delay={0.1}>
           <section
-            style={{
-              borderBottom: "1px solid rgba(240,237,232,0.1)",
-              padding: "72px 48px",
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 64,
-              alignItems: "center",
-            }}
+            className="pg-grid-2-center pg-section"
+            style={{ borderBottom: "1px solid rgba(240,237,232,0.1)" }}
           >
             {/* iframe preview */}
             <div
+              className="work-iframe-wrap"
               style={{
                 position: "relative",
                 width: "100%",

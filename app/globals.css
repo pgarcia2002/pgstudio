@@ -134,6 +134,42 @@
   border-bottom-color: rgba(240,237,232,0.4) !important;
 }
 
+/* ── Responsive layout classes ── */
+.pg-hero-pad    { padding: 0 48px; }
+.pg-section     { padding: 80px 48px; }
+.pg-section-lg  { padding: 120px 48px; }
+.pg-section-hero { padding-top: 160px; padding-bottom: 80px; padding-left: 48px; padding-right: 48px; }
+.pg-grid-2      { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.pg-grid-2-center { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+.pg-grid-4      { display: grid; grid-template-columns: repeat(4, 1fr); gap: 48px; }
+
+@media (max-width: 768px) {
+  .pg-hero-pad    { padding: 0 24px; }
+  .pg-section     { padding: 60px 24px; }
+  .pg-section-lg  { padding: 80px 24px; }
+  .pg-section-hero { padding-top: 120px; padding-bottom: 60px; padding-left: 24px; padding-right: 24px; }
+  .pg-grid-2, .pg-grid-2-center { grid-template-columns: 1fr; gap: 40px; }
+  .pg-grid-4      { grid-template-columns: 1fr 1fr; gap: 32px; }
+
+  /* Nav */
+  .nav-desktop { display: none !important; }
+  .nav-mobile-btn { display: flex !important; }
+
+  /* Footer */
+  .footer-inner { flex-direction: column; gap: 16px; align-items: flex-start !important; }
+
+  /* Work iframes — hide on mobile, show info only */
+  .work-iframe-wrap { display: none !important; }
+
+  /* Cursor off on touch */
+  .cursor-dot, .cursor-ring { display: none !important; }
+  body { cursor: auto !important; }
+}
+
+@media (max-width: 480px) {
+  .pg-grid-4 { grid-template-columns: 1fr; }
+}
+
 /* ── Remove default focus outline on inputs (we have custom borders) ── */
 input:focus,
 textarea:focus,

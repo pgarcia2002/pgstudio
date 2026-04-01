@@ -8,13 +8,13 @@ export default function HomePage() {
     <main style={{ background: "#080808" }}>
       {/* ── Hero ── */}
       <section
+        className="pg-hero-pad"
         style={{
           position: "relative",
           minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          padding: "0 48px",
           overflow: "hidden",
         }}
       >
@@ -75,11 +75,8 @@ export default function HomePage() {
 
       {/* ── Contact CTA strip ── */}
       <section
-        style={{
-          borderTop: "1px solid rgba(240,237,232,0.1)",
-          padding: "120px 48px",
-          textAlign: "center",
-        }}
+        className="pg-section-lg"
+        style={{ borderTop: "1px solid rgba(240,237,232,0.1)", textAlign: "center" }}
       >
         <AnimatedSection style={{ transform: "translateY(80px) scale(0.95)" }}>
           <h2
