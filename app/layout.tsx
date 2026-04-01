@@ -28,6 +28,11 @@ export const metadata: Metadata = {
   title: "PG Studio — Web Design",
   description:
     "Agence de web design freelance par Patrick Garcia. Expériences digitales haut de gamme depuis Paris.",
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/logo.png",
+  },
 }
 
 export default function RootLayout({
