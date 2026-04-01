@@ -19,7 +19,7 @@ const projects = [
   {
     name: "Speedster",
     url: "https://speedster-sandy.vercel.app",
-    category: "Automobile",
+    category: "Chaussures de sport",
     description:
       "Un site audacieux et dynamique pour une marque de voitures de performance. Des visuels à fort contraste et une énergie cinétique qui reflète les voitures elles-mêmes.",
   },
