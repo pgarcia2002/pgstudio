@@ -82,7 +82,7 @@ export default function HomePage() {
         }}>
           <div style={{
             position: "absolute", inset: 0,
-            backgroundImage: "url('/Gemini_Generated_Image_mvg75mmvg75mmvg7.png')",
+            backgroundImage: "url('/Gemini_Generated_Image_ml5iwiml5iwiml5i.jpg')",
             backgroundSize: "cover", backgroundPosition: "center",
             opacity: 0.4,
             transition: "opacity 0.5s ease, transform 0.5s ease",
