@@ -58,7 +58,7 @@ export default function HomePage() {
             textTransform: "uppercase",
             color: "rgba(255,255,255,0.55)",
           }}>
-            Web Design · AI · Motion Design
+            AI · Motion
           </p>
         </div>
 
@@ -67,7 +67,7 @@ export default function HomePage() {
           position: "absolute", bottom: 40, right: 40, zIndex: 2,
           display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
         }}>
-          <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", writingMode: "vertical-rl" }}>Scroll</span>
+          <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", writingMode: "vertical-rl" }}>Scroll down</span>
           <div style={{ width: 1, height: 48, background: "rgba(255,255,255,0.3)" }} />
         </div>
       </section>
@@ -95,7 +95,7 @@ export default function HomePage() {
               Artificial<br />Intelligence
             </h2>
             <p style={{ fontFamily: "var(--font-syne)", fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 20, letterSpacing: "0.05em" }}>
-              Design génératif & IA créative →
+              Generative & Creative AI →
             </p>
           </div>
         </Link>
@@ -120,7 +120,7 @@ export default function HomePage() {
               Motion<br />Design
             </h2>
             <p style={{ fontFamily: "var(--font-syne)", fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 20, letterSpacing: "0.05em" }}>
-              Animation & direction artistique →
+              Animation & Art Direction →
             </p>
           </div>
         </Link>
@@ -137,7 +137,7 @@ export default function HomePage() {
           maxWidth: 900,
           letterSpacing: "-0.01em",
         }}>
-          Je crée des expériences digitales qui marquent — entre esthétique radicale, intelligence artificielle et mouvement.
+          I create digital experiences that leave a mark — radical aesthetics, artificial intelligence, and motion.
         </p>
         <div style={{ marginTop: 64 }}>
           <Link href="/contact" style={{
@@ -146,7 +146,7 @@ export default function HomePage() {
             paddingBottom: 4, borderBottom: "1px solid rgba(255,255,255,0.4)",
             transition: "border-color 0.3s ease",
           }}>
-            Démarrer un projet →
+            Start a project →
           </Link>
         </div>
       </section>

@@ -9,7 +9,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     const subject = encodeURIComponent(`Projet — ${name}`)
-    const body = encodeURIComponent(`Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`)
+    const body = encodeURIComponent(`Name : ${name}\nEmail : ${email}\n\nMessage :\n${message}`)
     window.location.href = `mailto:patrickgarciapro@hotmail.com?subject=${subject}&body=${body}`
   }
 
@@ -43,7 +43,7 @@ export default function ContactPage() {
           fontWeight: 700, letterSpacing: "-0.03em",
           textTransform: "uppercase", color: "#fff", lineHeight: 0.88,
         }}>
-          Parlons<br />Projet.
+          Let's<br />Talk.
         </h1>
       </section>
 
@@ -52,8 +52,8 @@ export default function ContactPage() {
         <div style={{ maxWidth: 680 }}>
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 0 }}>
             <div style={{ marginBottom: 8 }}>
-              <label style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Nom</label>
-              <input type="text" required value={name} onChange={e => setName(e.target.value)} placeholder="Votre nom" style={inputStyle} />
+              <label style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Name</label>
+              <input type="text" required value={name} onChange={e => setName(e.target.value)} placeholder="Your name" style={inputStyle} />
             </div>
             <div style={{ marginBottom: 8, marginTop: 32 }}>
               <label style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Email</label>
@@ -61,7 +61,7 @@ export default function ContactPage() {
             </div>
             <div style={{ marginBottom: 8, marginTop: 32 }}>
               <label style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Message</label>
-              <textarea required value={message} onChange={e => setMessage(e.target.value)} placeholder="Parlez-moi de votre projet..." rows={5}
+              <textarea required value={message} onChange={e => setMessage(e.target.value)} placeholder="Tell me about your project..." rows={5}
                 style={{ ...inputStyle, resize: "none", display: "block" }} />
             </div>
 
@@ -79,7 +79,7 @@ export default function ContactPage() {
                 onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.85)" }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#fff" }}
               >
-                Envoyer →
+                Send →
               </button>
             </div>
           </form>
@@ -96,12 +96,12 @@ export default function ContactPage() {
             </a>
           </div>
           <div>
-            <p style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>Localisation</p>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>Location</p>
             <p style={{ fontFamily: "var(--font-syne)", fontSize: 14, color: "#fff" }}>Paris, France</p>
           </div>
           <div>
-            <p style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>Disponibilité</p>
-            <p style={{ fontFamily: "var(--font-syne)", fontSize: 14, color: "#fff" }}>Ouvert aux projets</p>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>Availability</p>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 14, color: "#fff" }}>Open for projects</p>
           </div>
         </div>
       </section>

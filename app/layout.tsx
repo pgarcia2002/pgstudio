@@ -25,9 +25,9 @@ const spaceGrotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  title: "PG Studio — Web Design",
+  title: "PG Studio — AI & Motion",
   description:
-    "Agence de web design freelance par Patrick Garcia. Expériences digitales haut de gamme depuis Paris.",
+    "Patrick Garcia — AI & Motion Designer based in Paris. Creative digital experiences.",
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
@@ -40,7 +40,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="fr"
+      lang="en"
       className={`${playfair.variable} ${josefin.variable} ${spaceGrotesk.variable}`}
       style={{ background: "#080808" }}
     >
