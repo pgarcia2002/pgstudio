@@ -88,22 +88,17 @@ export default function AIPage() {
     <main style={{ background: "#000" }}>
 
       {/* ── HERO ── */}
-      <section style={{ position: "relative", height: "100vh", overflow: "hidden", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
-        <video autoPlay muted loop playsInline style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }}>
-          <source src="/hero.mp4" type="video/mp4" />
-        </video>
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%)" }} />
-        <div style={{ position: "relative", zIndex: 2, height: "100%", display: "flex", flexDirection: "column", justifyContent: "flex-end", padding: "0 40px 60px" }}>
-          <p style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)", marginBottom: 24 }}>
-            01 — Artificial Intelligence
-          </p>
-          <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 24 }}>
-            <h1 style={{ fontFamily: "var(--font-title), sans-serif", fontSize: "clamp(64px, 12vw, 160px)", fontWeight: 700, letterSpacing: "-0.03em", textTransform: "uppercase", color: "#fff", lineHeight: 0.88 }}>
-              AI
-            </h1>
-            <Image src="/logo.png" alt="PG Studio" width={72} height={36} style={{ objectFit: "contain", filter: "brightness(0) invert(1)", opacity: 0.5, marginBottom: 8 }} />
-          </div>
+      <section style={{ padding: "180px 40px 100px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <p style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 32 }}>
+          01 — Artificial Intelligence
+        </p>
+        <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 24, marginBottom: 48 }}>
+          <h1 style={{ fontFamily: "var(--font-title), sans-serif", fontSize: "clamp(64px, 12vw, 160px)", fontWeight: 700, letterSpacing: "-0.03em", textTransform: "uppercase", color: "#fff", lineHeight: 0.88 }}>
+            AI
+          </h1>
+          <Image src="/logo.png" alt="PG Studio" width={72} height={36} style={{ objectFit: "contain", filter: "brightness(0) invert(1)", opacity: 0.5, marginBottom: 8 }} />
         </div>
+        <VideoCard video="/hero.mp4" />
       </section>
 
       {/* ── PROJECTS ── */}
