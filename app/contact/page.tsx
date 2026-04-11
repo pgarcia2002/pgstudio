@@ -1,259 +1,109 @@
 "use client"
-import { AnimatedSection } from "@/components/animated-section"
-import { NeonButton } from "@/components/ui/neon-button"
-
-const socials = [
-  { label: "Instagram", href: "https://instagram.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Behance", href: "https://behance.net" },
-]
+import { useState } from "react"
 
 export default function ContactPage() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+
+  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const data = new FormData(e.currentTarget)
-    const name = data.get("name")
-    const email = data.get("email")
-    const message = data.get("message")
-    const subject = encodeURIComponent(`Demande de projet — ${name}`)
-    const body = encodeURIComponent(
-      `Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`
-    )
+    const subject = encodeURIComponent(`Projet — ${name}`)
+    const body = encodeURIComponent(`Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`)
     window.location.href = `mailto:patrickgarciapro@hotmail.com?subject=${subject}&body=${body}`
   }
 
+  const inputStyle = {
+    width: "100%",
+    background: "transparent",
+    border: "none",
+    borderBottom: "1px solid rgba(255,255,255,0.15)",
+    padding: "18px 0",
+    fontFamily: "var(--font-syne), sans-serif",
+    fontSize: 15,
+    fontWeight: 300,
+    color: "#fff",
+    outline: "none",
+    transition: "border-color 0.3s ease",
+  }
+
   return (
-    <main style={{ background: "#080808" }}>
-      {/* ── Hero ── */}
-      <section
-        className="pg-section-hero"
-        style={{ borderBottom: "1px solid rgba(240,237,232,0.1)" }}
-      >
-        <AnimatedSection>
-          <h1
-            style={{
-              fontFamily: "var(--font-title), sans-serif",
-              fontSize: "clamp(52px, 7vw, 88px)",
-              fontWeight: 300,
-              letterSpacing: "0.06em",
-              textTransform: "uppercase",
-              color: "#F0EDE8",
-              margin: "0 0 20px",
-              lineHeight: 1,
-            }}
-          >
-            Parlons-en.
-          </h1>
-        </AnimatedSection>
-        <AnimatedSection delay={0.1}>
-          <p
-            style={{
-              fontFamily: "var(--font-syne), sans-serif",
-              fontSize: 15,
-              fontWeight: 300,
-              color: "rgba(240,237,232,0.38)",
-            }}
-          >
-            Parlez-moi de votre projet.
-          </p>
-        </AnimatedSection>
+    <main style={{ background: "#000", minHeight: "100vh" }}>
+
+      {/* ── HERO ── */}
+      <section style={{ padding: "180px 40px 80px", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+        <p style={{
+          fontFamily: "var(--font-syne), sans-serif",
+          fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase",
+          color: "rgba(255,255,255,0.35)", marginBottom: 32,
+        }}>Contact</p>
+        <h1 style={{
+          fontFamily: "var(--font-title), sans-serif",
+          fontSize: "clamp(52px, 10vw, 130px)",
+          fontWeight: 700, letterSpacing: "-0.03em",
+          textTransform: "uppercase", color: "#fff", lineHeight: 0.88,
+        }}>
+          Parlons<br />Projet.
+        </h1>
       </section>
 
-      {/* ── Form + Info ── */}
-      <section
-        className="pg-section pg-grid-2"
-      >
-        {/* Form */}
-        <AnimatedSection>
-          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 32 }}>
-            <label style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-syne), sans-serif",
-                  fontSize: 10,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "rgba(240,237,232,0.38)",
-                }}
-              >
-                Nom
-              </span>
-              <input
-                type="text"
-                name="name"
-                required
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  borderBottom: "1px solid rgba(240,237,232,0.2)",
-                  padding: "10px 0",
-                  color: "#F0EDE8",
-                  fontFamily: "var(--font-syne), sans-serif",
-                  fontSize: 14,
-                  fontWeight: 300,
-                  outline: "none",
-                  width: "100%",
-                }}
-              />
-            </label>
-
-            <label style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-syne), sans-serif",
-                  fontSize: 10,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "rgba(240,237,232,0.38)",
-                }}
-              >
-                Email
-              </span>
-              <input
-                type="email"
-                name="email"
-                required
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  borderBottom: "1px solid rgba(240,237,232,0.2)",
-                  padding: "10px 0",
-                  color: "#F0EDE8",
-                  fontFamily: "var(--font-syne), sans-serif",
-                  fontSize: 14,
-                  fontWeight: 300,
-                  outline: "none",
-                  width: "100%",
-                }}
-              />
-            </label>
-
-            <label style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <span
-                style={{
-                  fontFamily: "var(--font-syne), sans-serif",
-                  fontSize: 10,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "rgba(240,237,232,0.38)",
-                }}
-              >
-                Message
-              </span>
-              <textarea
-                name="message"
-                rows={5}
-                required
-                style={{
-                  background: "transparent",
-                  border: "none",
-                  borderBottom: "1px solid rgba(240,237,232,0.2)",
-                  padding: "10px 0",
-                  color: "#F0EDE8",
-                  fontFamily: "var(--font-syne), sans-serif",
-                  fontSize: 14,
-                  fontWeight: 300,
-                  outline: "none",
-                  width: "100%",
-                  resize: "none",
-                }}
-              />
-            </label>
-
-            <NeonButton type="submit" style={{ alignSelf: "flex-start", cursor: "none", fontFamily: "var(--font-syne), sans-serif", fontWeight: 400, letterSpacing: "0.2em", textTransform: "uppercase" }}>
-              Envoyer →
-            </NeonButton>
-          </form>
-        </AnimatedSection>
-
-        {/* Contact info */}
-        <AnimatedSection delay={0.15}>
-          <div style={{ paddingTop: 8 }}>
-            <div style={{ display: "flex", flexDirection: "column", gap: 40, marginBottom: 64 }}>
-              {[
-                { label: "Email", value: "patrickgarciapro@hotmail.com", href: "mailto:patrickgarciapro@hotmail.com" },
-                { label: "Basé à", value: "Paris, France" },
-                { label: "Disponible pour", value: "Projets freelance partout dans le monde" },
-                { label: "Délai de réponse", value: "Sous 48h" },
-              ].map(({ label, value, href }) => (
-                <div key={label}>
-                  <p
-                    style={{
-                      fontFamily: "var(--font-syne), sans-serif",
-                      fontSize: 10,
-                      letterSpacing: "0.2em",
-                      textTransform: "uppercase",
-                      color: "rgba(240,237,232,0.38)",
-                      marginBottom: 8,
-                    }}
-                  >
-                    {label}
-                  </p>
-                  {href ? (
-                    <a
-                      href={href}
-                      style={{
-                        fontFamily: "var(--font-cormorant), serif",
-                        fontSize: 22,
-                        fontWeight: 400,
-                        color: "#F0EDE8",
-                        textDecoration: "none",
-                        borderBottom: "1px solid rgba(240,237,232,0.2)",
-                        paddingBottom: 2,
-                      }}
-                    >
-                      {value}
-                    </a>
-                  ) : (
-                    <p
-                      style={{
-                        fontFamily: "var(--font-cormorant), serif",
-                        fontSize: 22,
-                        fontWeight: 400,
-                        color: "#F0EDE8",
-                        margin: 0,
-                      }}
-                    >
-                      {value}
-                    </p>
-                  )}
-                </div>
-              ))}
+      {/* ── FORM ── */}
+      <section style={{ padding: "80px 40px" }}>
+        <div style={{ maxWidth: 680 }}>
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+            <div style={{ marginBottom: 8 }}>
+              <label style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Nom</label>
+              <input type="text" required value={name} onChange={e => setName(e.target.value)} placeholder="Votre nom" style={inputStyle} />
+            </div>
+            <div style={{ marginBottom: 8, marginTop: 32 }}>
+              <label style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Email</label>
+              <input type="email" required value={email} onChange={e => setEmail(e.target.value)} placeholder="votre@email.com" style={inputStyle} />
+            </div>
+            <div style={{ marginBottom: 8, marginTop: 32 }}>
+              <label style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)" }}>Message</label>
+              <textarea required value={message} onChange={e => setMessage(e.target.value)} placeholder="Parlez-moi de votre projet..." rows={5}
+                style={{ ...inputStyle, resize: "none", display: "block" }} />
             </div>
 
-            <div
-              style={{
-                borderTop: "1px solid rgba(240,237,232,0.1)",
-                paddingTop: 32,
-                display: "flex",
-                gap: 40,
+            <div style={{ marginTop: 56 }}>
+              <button type="submit" style={{
+                background: "#fff", color: "#000",
+                border: "none",
+                fontFamily: "var(--font-syne), sans-serif",
+                fontSize: 11, fontWeight: 500,
+                letterSpacing: "0.25em", textTransform: "uppercase",
+                padding: "18px 48px",
+                cursor: "none",
+                transition: "background 0.2s ease, color 0.2s ease",
               }}
-            >
-              {socials.map(({ label, href }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{
-                    fontFamily: "var(--font-syne), sans-serif",
-                    fontSize: 10,
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    color: "rgba(240,237,232,0.38)",
-                    textDecoration: "none",
-                    paddingBottom: 2,
-                    borderBottom: "1px solid transparent",
-                    transition: "color 0.3s ease, border-color 0.3s ease",
-                  }}
-                  className="footer-link"
-                >
-                  {label}
-                </a>
-              ))}
+                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.85)" }}
+                onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#fff" }}
+              >
+                Envoyer →
+              </button>
             </div>
+          </form>
+        </div>
+      </section>
+
+      {/* ── INFO ── */}
+      <section style={{ padding: "0 40px 120px", borderTop: "1px solid rgba(255,255,255,0.08)", marginTop: 40, paddingTop: 60 }}>
+        <div style={{ display: "flex", gap: 80, flexWrap: "wrap" }}>
+          <div>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>Email</p>
+            <a href="mailto:patrickgarciapro@hotmail.com" style={{ fontFamily: "var(--font-syne)", fontSize: 14, color: "#fff", textDecoration: "none" }}>
+              patrickgarciapro@hotmail.com
+            </a>
           </div>
-        </AnimatedSection>
+          <div>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>Localisation</p>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 14, color: "#fff" }}>Paris, France</p>
+          </div>
+          <div>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>Disponibilité</p>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 14, color: "#fff" }}>Ouvert aux projets</p>
+          </div>
+        </div>
       </section>
     </main>
   )

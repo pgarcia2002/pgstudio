@@ -1,113 +1,156 @@
+"use client"
+import { useEffect, useRef } from "react"
 import Link from "next/link"
-import { ShaderAnimation } from "@/components/ui/shader-animation"
-import { AnimatedSection } from "@/components/animated-section"
-import { NeonLink } from "@/components/ui/neon-link"
 
 export default function HomePage() {
+  const revealRefs = useRef<HTMLElement[]>([])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target) } }),
+      { threshold: 0.12 }
+    )
+    revealRefs.current.forEach(el => el && observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
+  const ref = (el: HTMLElement | null) => { if (el && !revealRefs.current.includes(el)) revealRefs.current.push(el) }
+
   return (
-    <main style={{ background: "#080808" }}>
-      {/* ── Hero ── */}
-      <section
-        className="pg-hero-pad"
-        style={{
-          position: "relative",
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
-        }}
-      >
-        <div style={{ position: "absolute", inset: 0, opacity: 0.85 }}>
-          <ShaderAnimation />
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "radial-gradient(ellipse at center, transparent 40%, rgba(8,8,8,0.4) 100%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div style={{ position: "relative", zIndex: 2, textAlign: "center", maxWidth: 600 }}>
-          <p
-            style={{
-              fontFamily: "var(--font-syne), sans-serif",
-              fontSize: 11,
-              fontWeight: 400,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "rgba(240,237,232,0.38)",
-              marginBottom: 20,
-            }}
-          >
-            Web Design — Paris
-          </p>
-          <h1
-            style={{
-              fontFamily: "var(--font-syne), sans-serif",
-              fontSize: "clamp(40px, 5vw, 64px)",
-              fontWeight: 300,
-              lineHeight: 1.1,
-              color: "#F0EDE8",
-              margin: "0 0 20px",
-            }}
-          >
-            Un design qui convertit.
+    <main style={{ background: "#000" }}>
+
+      {/* ── HERO ── */}
+      <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+        {/* Video background — replace /hero.mp4 with your actual video */}
+        <video
+          autoPlay muted loop playsInline
+          style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }}
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
+
+        {/* Dark overlay */}
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.5) 100%)" }} />
+
+        {/* Hero content */}
+        <div style={{
+          position: "relative", zIndex: 2, height: "100%",
+          display: "flex", flexDirection: "column", justifyContent: "flex-end",
+          padding: "0 40px 60px",
+        }}>
+          <h1 style={{
+            fontFamily: "var(--font-title), sans-serif",
+            fontSize: "clamp(52px, 10vw, 140px)",
+            fontWeight: 700,
+            letterSpacing: "-0.02em",
+            lineHeight: 0.92,
+            color: "#fff",
+            textTransform: "uppercase",
+            marginBottom: 32,
+          }}>
+            Patrick<br />Garcia
           </h1>
-          <p
-            style={{
-              fontFamily: "var(--font-syne), sans-serif",
-              fontSize: 13,
-              fontWeight: 300,
-              color: "rgba(240,237,232,0.38)",
-              lineHeight: 1.8,
-              marginBottom: 36,
-            }}
-          >
-            Je conçois des sites web qui captent l'attention et transforment les visiteurs en clients.
+          <p style={{
+            fontFamily: "var(--font-syne), sans-serif",
+            fontSize: 13,
+            fontWeight: 300,
+            letterSpacing: "0.25em",
+            textTransform: "uppercase",
+            color: "rgba(255,255,255,0.55)",
+          }}>
+            Web Design · AI · Motion Design
           </p>
-          <NeonLink href="/work">Voir les projets →</NeonLink>
+        </div>
+
+        {/* Scroll indicator */}
+        <div style={{
+          position: "absolute", bottom: 40, right: 40, zIndex: 2,
+          display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
+        }}>
+          <span style={{ fontFamily: "var(--font-syne), sans-serif", fontSize: 9, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)", writingMode: "vertical-rl" }}>Scroll</span>
+          <div style={{ width: 1, height: 48, background: "rgba(255,255,255,0.3)" }} />
         </div>
       </section>
 
+      {/* ── SPLIT — AI / MOTION ── */}
+      <div className="home-split" style={{ display: "flex", height: "100vh" }}>
+        <Link href="/ai" style={{
+          flex: 1, position: "relative", overflow: "hidden", textDecoration: "none",
+          display: "flex", alignItems: "flex-end", padding: "40px",
+          borderRight: "1px solid rgba(255,255,255,0.08)",
+          background: "#000",
+          transition: "background 0.5s ease",
+        }}
+          onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
+          onMouseLeave={e => (e.currentTarget.style.background = "#000")}
+        >
+          <div>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 16 }}>01</p>
+            <h2 style={{
+              fontFamily: "var(--font-title), sans-serif",
+              fontSize: "clamp(48px, 7vw, 96px)",
+              fontWeight: 700, letterSpacing: "-0.02em",
+              textTransform: "uppercase", color: "#fff", lineHeight: 0.9,
+            }}>
+              Artificial<br />Intelligence
+            </h2>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 20, letterSpacing: "0.05em" }}>
+              Design génératif & IA créative →
+            </p>
+          </div>
+        </Link>
 
-      {/* ── Contact CTA strip ── */}
-      <section
-        className="pg-section-lg"
-        style={{ borderTop: "1px solid rgba(240,237,232,0.1)", textAlign: "center" }}
-      >
-        <AnimatedSection style={{ transform: "translateY(80px) scale(0.95)" }}>
-          <h2
-            style={{
-              fontFamily: "var(--font-syne), sans-serif",
-              fontSize: "clamp(48px, 6vw, 80px)",
-              fontWeight: 300,
-              color: "#F0EDE8",
-              margin: "0 0 20px",
-            }}
-          >
-            Un projet en tête ?
-          </h2>
-        </AnimatedSection>
-        <AnimatedSection delay={0.1}>
-          <p
-            style={{
-              fontFamily: "var(--font-syne), sans-serif",
-              fontSize: 14,
-              fontWeight: 300,
-              color: "rgba(240,237,232,0.38)",
-              marginBottom: 48,
-            }}
-          >
-            Créons quelque chose de remarquable ensemble.
-          </p>
-        </AnimatedSection>
-        <AnimatedSection delay={0.2}>
-          <NeonLink href="/contact">Travaillons ensemble</NeonLink>
-        </AnimatedSection>
+        <Link href="/motion" style={{
+          flex: 1, position: "relative", overflow: "hidden", textDecoration: "none",
+          display: "flex", alignItems: "flex-end", padding: "40px",
+          background: "#000",
+          transition: "background 0.5s ease",
+        }}
+          onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
+          onMouseLeave={e => (e.currentTarget.style.background = "#000")}
+        >
+          <div>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 16 }}>02</p>
+            <h2 style={{
+              fontFamily: "var(--font-title), sans-serif",
+              fontSize: "clamp(48px, 7vw, 96px)",
+              fontWeight: 700, letterSpacing: "-0.02em",
+              textTransform: "uppercase", color: "#fff", lineHeight: 0.9,
+            }}>
+              Motion<br />Design
+            </h2>
+            <p style={{ fontFamily: "var(--font-syne)", fontSize: 12, color: "rgba(255,255,255,0.4)", marginTop: 20, letterSpacing: "0.05em" }}>
+              Animation & direction artistique →
+            </p>
+          </div>
+        </Link>
+      </div>
+
+      {/* ── STATEMENT ── */}
+      <section style={{ padding: "140px 40px", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+        <p ref={ref} className="reveal" style={{
+          fontFamily: "var(--font-title), sans-serif",
+          fontSize: "clamp(28px, 4vw, 52px)",
+          fontWeight: 300,
+          color: "#fff",
+          lineHeight: 1.3,
+          maxWidth: 900,
+          letterSpacing: "-0.01em",
+        }}>
+          Je crée des expériences digitales qui marquent — entre esthétique radicale, intelligence artificielle et mouvement.
+        </p>
+        <div style={{ marginTop: 64 }}>
+          <Link href="/contact" style={{
+            fontFamily: "var(--font-syne)", fontSize: 11, letterSpacing: "0.25em",
+            textTransform: "uppercase", color: "#fff", textDecoration: "none",
+            paddingBottom: 4, borderBottom: "1px solid rgba(255,255,255,0.4)",
+            transition: "border-color 0.3s ease",
+          }}>
+            Démarrer un projet →
+          </Link>
+        </div>
       </section>
+
     </main>
   )
 }
