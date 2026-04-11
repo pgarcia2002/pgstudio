@@ -54,7 +54,7 @@ export default function MotionPage() {
       {projects.map(({ title, year, tags, description }, i) => (
         <article key={title} ref={ref} className="reveal" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)", padding: "80px 40px" }}>
           <div style={{
-            width: "100%", aspectRatio: "16/7", marginBottom: 40,
+            width: "100%", aspectRatio: "16/9", marginBottom: 40,
             background: `hsl(${200 + i * 30}, 8%, 8%)`,
             display: "flex", alignItems: "center", justifyContent: "center",
             border: "1px solid rgba(255,255,255,0.06)", position: "relative", overflow: "hidden",

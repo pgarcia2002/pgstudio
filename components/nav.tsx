@@ -42,8 +42,8 @@ export function Nav() {
           <Image
             src="/logo.png"
             alt="PG Studio"
-            width={48}
-            height={24}
+            width={72}
+            height={36}
             style={{ objectFit: "contain", filter: "brightness(0) invert(1)" }}
           />
         </Link>

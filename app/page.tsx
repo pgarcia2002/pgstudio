@@ -48,7 +48,7 @@ export default function HomePage() {
             textTransform: "uppercase",
             marginBottom: 32,
           }}>
-            Patrick<br />Garcia
+            Video<br />Agency
           </h1>
           <p style={{
             fontFamily: "var(--font-syne), sans-serif",
@@ -137,7 +137,7 @@ export default function HomePage() {
           maxWidth: 900,
           letterSpacing: "-0.01em",
         }}>
-          I create digital experiences that leave a mark — radical aesthetics, artificial intelligence, and motion.
+          We create digital experiences that leave a mark, radical aesthetics, artificial intelligence, and motion.
         </p>
         <div style={{ marginTop: 64 }}>
           <Link href="/contact" style={{
