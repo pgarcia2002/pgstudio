@@ -13,22 +13,61 @@ const videos = [
 function VideoCard({ video }: { video: string }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [muted, setMuted] = useState(true)
+  const [playing, setPlaying] = useState(false)
 
-  const toggleSound = () => {
+  const togglePlay = () => {
+    if (!videoRef.current) return
+    if (playing) {
+      videoRef.current.pause()
+      setPlaying(false)
+    } else {
+      videoRef.current.play()
+      setPlaying(true)
+    }
+  }
+
+  const toggleSound = (e: React.MouseEvent) => {
+    e.stopPropagation()
     if (!videoRef.current) return
     videoRef.current.muted = !videoRef.current.muted
     setMuted(videoRef.current.muted)
   }
 
   return (
-    <div style={{ position: "relative", width: "100%", aspectRatio: "16/9", overflow: "hidden", background: "#0a0a0a" }}>
+    <div
+      onClick={togglePlay}
+      style={{ position: "relative", width: "100%", aspectRatio: "16/9", overflow: "hidden", background: "#0a0a0a", cursor: "pointer" }}
+    >
       <video
         ref={videoRef}
-        autoPlay muted loop playsInline
+        muted loop playsInline
         style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
       >
         <source src={video} type="video/mp4" />
       </video>
+
+      {/* Play/pause overlay */}
+      {!playing && (
+        <div style={{
+          position: "absolute", inset: 0, display: "flex",
+          alignItems: "center", justifyContent: "center",
+          background: "rgba(0,0,0,0.35)",
+          zIndex: 2,
+        }}>
+          <div style={{
+            width: 64, height: 64, borderRadius: "50%",
+            border: "1px solid rgba(255,255,255,0.6)",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            backdropFilter: "blur(4px)",
+          }}>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="white">
+              <polygon points="6,3 18,10 6,17" />
+            </svg>
+          </div>
+        </div>
+      )}
+
+      {/* Sound toggle */}
       <button
         onClick={toggleSound}
         style={{
@@ -42,7 +81,7 @@ function VideoCard({ video }: { video: string }) {
           cursor: "pointer",
           backdropFilter: "blur(8px)",
           transition: "background 0.2s ease",
-          zIndex: 2,
+          zIndex: 3,
         }}
       >
         {muted ? "🔇 Sound off" : "🔊 Sound on"}

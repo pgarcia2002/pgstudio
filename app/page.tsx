@@ -79,12 +79,18 @@ export default function HomePage() {
           display: "flex", alignItems: "flex-end", padding: "40px",
           borderRight: "1px solid rgba(255,255,255,0.08)",
           background: "#000",
-          transition: "background 0.5s ease",
-        }}
-          onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
-          onMouseLeave={e => (e.currentTarget.style.background = "#000")}
-        >
-          <div>
+        }}>
+          <div style={{
+            position: "absolute", inset: 0,
+            backgroundImage: "url('/Gemini_Generated_Image_mvg75mmvg75mmvg7.png')",
+            backgroundSize: "cover", backgroundPosition: "center",
+            opacity: 0.4,
+            transition: "opacity 0.5s ease, transform 0.5s ease",
+          }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.opacity = "0.65"; (e.currentTarget as HTMLDivElement).style.transform = "scale(1.03)" }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.opacity = "0.4"; (e.currentTarget as HTMLDivElement).style.transform = "scale(1)" }}
+          />
+          <div style={{ position: "relative", zIndex: 1 }}>
             <p style={{ fontFamily: "var(--font-syne)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 16 }}>01</p>
             <h2 style={{
               fontFamily: "var(--font-title), sans-serif",
@@ -104,12 +110,18 @@ export default function HomePage() {
           flex: 1, position: "relative", overflow: "hidden", textDecoration: "none",
           display: "flex", alignItems: "flex-end", padding: "40px",
           background: "#000",
-          transition: "background 0.5s ease",
-        }}
-          onMouseEnter={e => (e.currentTarget.style.background = "#0a0a0a")}
-          onMouseLeave={e => (e.currentTarget.style.background = "#000")}
-        >
-          <div>
+        }}>
+          <div style={{
+            position: "absolute", inset: 0,
+            backgroundImage: "url('/motiondesign_00073.jpg')",
+            backgroundSize: "cover", backgroundPosition: "center",
+            opacity: 0.4,
+            transition: "opacity 0.5s ease, transform 0.5s ease",
+          }}
+            onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.opacity = "0.65"; (e.currentTarget as HTMLDivElement).style.transform = "scale(1.03)" }}
+            onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.opacity = "0.4"; (e.currentTarget as HTMLDivElement).style.transform = "scale(1)" }}
+          />
+          <div style={{ position: "relative", zIndex: 1 }}>
             <p style={{ fontFamily: "var(--font-syne)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 16 }}>02</p>
             <h2 style={{
               fontFamily: "var(--font-title), sans-serif",
