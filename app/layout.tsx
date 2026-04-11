@@ -29,9 +29,7 @@ export const metadata: Metadata = {
   description:
     "Patrick Garcia — AI & Motion Designer based in Paris. Creative digital experiences.",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/logo pg.png",
+    apple: "/pg.png",
   },
 }
 

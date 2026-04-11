@@ -48,7 +48,7 @@ export default function HomePage() {
             textTransform: "uppercase",
             marginBottom: 32,
           }}>
-            Video<br />Agency
+            Creative<br />Agency
           </h1>
           <p style={{
             fontFamily: "var(--font-syne), sans-serif",

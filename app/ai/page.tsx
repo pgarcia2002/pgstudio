@@ -5,8 +5,8 @@ import Image from "next/image"
 
 const videos = [
   "/hero.mp4",
-  "/film%204.mp4",
-  "/Composition%203_3.mp4",
+  "/film4.mp4",
+  "/composition3.mp4",
   "/MontageV1.mp4",
 ]
 
