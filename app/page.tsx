@@ -94,7 +94,7 @@ export default function HomePage() {
             <p style={{ fontFamily: "var(--font-syne)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 16 }}>01</p>
             <h2 style={{
               fontFamily: "var(--font-title), sans-serif",
-              fontSize: "clamp(48px, 7vw, 96px)",
+              fontSize: "clamp(38px, 5.5vw, 76px)",
               fontWeight: 700, letterSpacing: "-0.02em",
               textTransform: "uppercase", color: "#fff", lineHeight: 0.9,
             }}>
@@ -125,7 +125,7 @@ export default function HomePage() {
             <p style={{ fontFamily: "var(--font-syne)", fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", marginBottom: 16 }}>02</p>
             <h2 style={{
               fontFamily: "var(--font-title), sans-serif",
-              fontSize: "clamp(48px, 7vw, 96px)",
+              fontSize: "clamp(38px, 5.5vw, 76px)",
               fontWeight: 700, letterSpacing: "-0.02em",
               textTransform: "uppercase", color: "#fff", lineHeight: 0.9,
             }}>

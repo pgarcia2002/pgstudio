@@ -10,7 +10,7 @@ export default function ContactPage() {
     e.preventDefault()
     const subject = encodeURIComponent(`Projet — ${name}`)
     const body = encodeURIComponent(`Name : ${name}\nEmail : ${email}\n\nMessage :\n${message}`)
-    window.location.href = `mailto:patrickgarciapro@hotmail.com?subject=${subject}&body=${body}`
+    window.location.href = `mailto:pgstudio.fx@gmail.com?subject=${subject}&body=${body}`
   }
 
   const inputStyle = {
@@ -91,8 +91,8 @@ export default function ContactPage() {
         <div style={{ display: "flex", gap: 80, flexWrap: "wrap" }}>
           <div>
             <p style={{ fontFamily: "var(--font-syne)", fontSize: 9, letterSpacing: "0.25em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 12 }}>Email</p>
-            <a href="mailto:patrickgarciapro@hotmail.com" style={{ fontFamily: "var(--font-syne)", fontSize: 14, color: "#fff", textDecoration: "none" }}>
-              patrickgarciapro@hotmail.com
+            <a href="mailto:pgstudio.fx@gmail.com" style={{ fontFamily: "var(--font-syne)", fontSize: 14, color: "#fff", textDecoration: "none" }}>
+              pgstudio.fx@gmail.com
             </a>
           </div>
           <div>
