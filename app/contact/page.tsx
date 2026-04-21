@@ -5,12 +5,24 @@ export default function ContactPage() {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [message, setMessage] = useState("")
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle")
 
-  const handleSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const subject = encodeURIComponent(`Projet — ${name}`)
-    const body = encodeURIComponent(`Name : ${name}\nEmail : ${email}\n\nMessage :\n${message}`)
-    window.location.href = `mailto:pgstudio.fx@gmail.com?subject=${subject}&body=${body}`
+    setStatus("sending")
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    })
+    if (res.ok) {
+      setStatus("sent")
+      setName("")
+      setEmail("")
+      setMessage("")
+    } else {
+      setStatus("error")
+    }
   }
 
   const inputStyle = {
@@ -65,22 +77,28 @@ export default function ContactPage() {
                 style={{ ...inputStyle, resize: "none", display: "block" }} />
             </div>
 
-            <div style={{ marginTop: 56 }}>
-              <button type="submit" style={{
+            <div style={{ marginTop: 56, display: "flex", alignItems: "center", gap: 24 }}>
+              <button type="submit" disabled={status === "sending" || status === "sent"} style={{
                 background: "#fff", color: "#000",
                 border: "none",
                 fontFamily: "var(--font-syne), sans-serif",
                 fontSize: 11, fontWeight: 500,
                 letterSpacing: "0.25em", textTransform: "uppercase",
                 padding: "18px 48px",
-                cursor: "none",
-                transition: "background 0.2s ease, color 0.2s ease",
+                cursor: status === "sending" || status === "sent" ? "default" : "none",
+                opacity: status === "sending" ? 0.6 : 1,
+                transition: "background 0.2s ease, color 0.2s ease, opacity 0.2s ease",
               }}
-                onMouseEnter={e => { (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.85)" }}
+                onMouseEnter={e => { if (status === "idle" || status === "error") (e.currentTarget as HTMLButtonElement).style.background = "rgba(255,255,255,0.85)" }}
                 onMouseLeave={e => { (e.currentTarget as HTMLButtonElement).style.background = "#fff" }}
               >
-                Send →
+                {status === "sending" ? "Sending..." : status === "sent" ? "Sent ✓" : "Send →"}
               </button>
+              {status === "error" && (
+                <p style={{ fontFamily: "var(--font-syne)", fontSize: 11, color: "rgba(255,80,80,0.8)", letterSpacing: "0.1em" }}>
+                  Something went wrong. Try again.
+                </p>
+              )}
             </div>
           </form>
         </div>
