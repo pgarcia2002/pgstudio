@@ -4,7 +4,6 @@ import Link from "next/link"
 import Image from "next/image"
 
 const videos = [
-  "/hero.mp4",
   "/runway.mp4",
   "/film4.mp4",
   "/composition3.mp4",
@@ -138,7 +137,7 @@ export default function AIPage() {
       </section>
 
       {/* ── VIDEOS ── */}
-      {videos.slice(1).map((video, i) => (
+      {videos.map((video, i) => (
         <article key={i} ref={ref} className="reveal" style={{
           borderBottom: "1px solid rgba(255,255,255,0.08)",
           padding: "clamp(32px, 6vw, 80px) clamp(20px, 5vw, 40px)",
