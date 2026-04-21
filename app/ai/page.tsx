@@ -7,7 +7,7 @@ const videos = [
   "/blackandwhite.mp4",
   "/redalien.mp4",
   "/film4.mp4",
-  "/composition3.mp4",
+  "/knight.mp4",
   "/MontageV1.mp4",
 ]
 
