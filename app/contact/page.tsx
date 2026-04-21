@@ -1,4 +1,5 @@
 "use client"
+import Image from "next/image"
 
 export default function ContactPage() {
   return (
@@ -6,6 +7,7 @@ export default function ContactPage() {
 
       {/* ── HERO ── */}
       <section style={{ padding: "180px 40px 80px" }}>
+        <Image src="/logo.png" alt="PG Studio" width={120} height={60} style={{ objectFit: "contain", filter: "brightness(0) invert(1)", opacity: 0.8, marginBottom: 48 }} />
         <p style={{
           fontFamily: "var(--font-syne), sans-serif",
           fontSize: 10, letterSpacing: "0.3em", textTransform: "uppercase",
