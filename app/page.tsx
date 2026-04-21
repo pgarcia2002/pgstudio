@@ -26,7 +26,7 @@ export default function HomePage() {
           autoPlay muted loop playsInline
           style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", opacity: 0.6 }}
         >
-          <source src="/hero.mp4" type="video/mp4" />
+          <source src="/runway.mp4" type="video/mp4" />
         </video>
 
         {/* Dark overlay */}
