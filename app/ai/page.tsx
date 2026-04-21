@@ -134,7 +134,7 @@ export default function AIPage() {
           </h1>
           <Image src="/logo.png" alt="PG Studio" width={72} height={36} style={{ objectFit: "contain", filter: "brightness(0) invert(1)", opacity: 0.5, marginBottom: 8 }} />
         </div>
-        <VideoCard video="/hero.mp4" />
+        <VideoCard video="/runway.mp4" />
       </section>
 
       {/* ── VIDEOS ── */}
